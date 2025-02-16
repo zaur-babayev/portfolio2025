@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 
 const vertexShader = `
 precision highp float;
@@ -135,7 +135,7 @@ export function MorphingBackground() {
         if (mutation.target === document.documentElement && mutation.attributeName === 'class') {
           const isDarkTheme = document.documentElement.classList.contains('dark');
           if (sceneRef.current?.points) {
-            const material = sceneRef.current.points.material as THREE.RawShaderMaterial;
+            const material = sceneRef.current.points.material as THREE.ShaderMaterial;
             material.uniforms.isDarkTheme.value = isDarkTheme;
             material.needsUpdate = true;
           }
@@ -221,7 +221,8 @@ export function MorphingBackground() {
 
       rotationSpeed += (targetRotationSpeed - rotationSpeed) * 0.1;
 
-      points.material.uniforms.time.value += t;
+      const material = points.material as THREE.ShaderMaterial;
+      material.uniforms.time.value += t;
       points.rotateY(rotationSpeed);
       controls.update();
       renderer.render(scene, camera);

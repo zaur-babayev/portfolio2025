@@ -104,7 +104,7 @@ export const useAudioPlayer = (midiUrl: string) => {
     // Schedule new notes
     midi.tracks.forEach(track => {
       track.notes.forEach(note => {
-        const id = Tone.Transport.schedule((time) => {
+        const id = Tone.Transport.schedule((time: number) => {
           synth.triggerAttackRelease(
             note.name,
             note.duration,

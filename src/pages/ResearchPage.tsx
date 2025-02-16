@@ -76,7 +76,7 @@ const ResearchPage = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
-                <ProjectCard {...project} />
+                <ProjectCard {...{...project, tags: [...project.tags]}} />
               </motion.div>
             ))}
           </div>

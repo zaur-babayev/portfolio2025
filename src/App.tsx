@@ -33,7 +33,7 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <ThemeProvider defaultTheme="system" storageKey="portfolio-theme">
+    <ThemeProvider storageKey="portfolio-theme">
       <Router>
         <AudioProvider>
           <AnimatedRoutes />

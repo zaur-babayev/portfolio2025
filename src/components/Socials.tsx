@@ -14,11 +14,11 @@ export default function Socials() {
   
   const socialLinks: SocialLink[] = [
     { name: 'Email', url: 'hello@zaurbek.dev', isEmail: true },
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/zaurbek' },
-    { name: 'GitHub', url: 'https://github.com/zaurbek' },
-    { name: 'Are.na', url: 'https://are.na/zaurbek' },
-    { name: 'Cosmos', url: 'https://cosmos.network' },
-    { name: 'ETIS', url: 'https://etis.ee' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/zaur-babayev/' },
+    { name: 'GitHub', url: 'https://github.com/zaur-babayev/' },
+    { name: 'Are.na', url: 'https://are.na/zaur-babayev' },
+    { name: 'Cosmos', url: 'https://www.cosmos.so/zaurb' },
+    { name: 'ETIS', url: 'https://www.etis.ee/CV/zaur_babayev/eng/' },
   ];
 
   const handleEmailClick = async () => {

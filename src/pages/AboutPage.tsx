@@ -151,7 +151,7 @@ export function AboutPage() {
             <SectionLabel>Experience</SectionLabel>
             <H2>Professional Journey</H2>
           </div>
-          <Timeline items={EXPERIENCE} />
+          <Timeline items={[...EXPERIENCE]} />
           <div className="flex items-center pt-4">
             <Button variant="outline" size="lg" asChild>
               <a href="/resume.pdf" download>
@@ -174,7 +174,7 @@ export function AboutPage() {
             <SectionLabel>Education</SectionLabel>
             <H2>Academic Background</H2>
           </div>
-          <Timeline items={EDUCATION} />
+          <Timeline items={[...EDUCATION]} />
         </motion.section>
 
         {/* Books */}
