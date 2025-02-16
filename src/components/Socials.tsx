@@ -13,7 +13,7 @@ export default function Socials() {
   const { toast } = useToast();
   
   const socialLinks: SocialLink[] = [
-    { name: 'Email', url: 'hello@zaurbek.dev', isEmail: true },
+    { name: 'Email', url: 'mail@zaurb.com', isEmail: true },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/zaur-babayev/' },
     { name: 'GitHub', url: 'https://github.com/zaur-babayev/' },
     { name: 'Are.na', url: 'https://are.na/zaur-babayev' },
