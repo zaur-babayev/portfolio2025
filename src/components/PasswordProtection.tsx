@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { Lock } from 'lucide-react'
 
 // In a real app, these would be stored securely, not hardcoded
-const PROJECT_PASSWORD = 'your-secure-password'
+const PROJECT_PASSWORD = import.meta.env.VITE_PROJECT_PASSWORD
 const PASSWORD_EXPIRY_HOURS = 24 // Password expires after 24 hours
 
 interface StoredPassword {
