@@ -4,18 +4,25 @@ import { motion } from "framer-motion"
 
 const RESEARCH_PROJECTS = [
   {
-    title: "Therapeutic Alliance in Digital Spaces",
+    title: "Digital Empathy in Teletherapy for Deeper Emotional Understanding",
     description: "An in-depth investigation into how therapeutic relationships develop and evolve in virtual environments, with a focus on enhancing remote therapy experiences through thoughtful design interventions.",
     tags: ["Healthcare", "User Research", "Digital Wellbeing"],
-    slug: "therapeutic-alliance",
-    imagePosition: "right"
+    link: "https://www.etis.ee/portal/mentorships/display/d0a10fe8-854a-4ebc-9b95-10b93bfa3aa9",
+    venue: "Ongoing PhD Research at Estonian Academy of Arts (2024 - 2028)" 
   },
   {
-    title: "Intergenerational Connection Through Play",
-    description: "Research exploring how sensory play and interactive experiences can bridge generational gaps and create meaningful connections between different age groups in care settings.",
+    title: "Enhancing Intergenerational Mental Wellbeing: Embodied Play for Children and Their Remote Grandparents",
+    description: "This project explores how to support intergenerational mental well-being through sensory play between children and their geographically distant grandparents. Both children and grandparents play a crucial role in each other’s mental well-being. However, they are increasingly physically separated.",
     tags: ["Social Impact", "Product Design", "User Research"],
-    slug: "intergenerational-play",
-    imagePosition: "left"
+    link: "https://www.etis.ee/Portal/Projects/Display/cd51b781-fc2f-4640-859f-533218b1d75c",
+    venue: "Ongoing Research Project funded by Estonian Ministry of Culture (2024 - 2025)"
+  },
+  {
+    title: "Co-creating design(s) to support intimacy between remote families",
+    description: "Co-creating design(s) to support intimacy between remote families: A Collaborative approach to interaction, social, and sensorial design” aims to bridge the emotional distance between families, inspired by the phenomenology of intimacy. By fostering collaboration among students, researchers, and practitioners, we seek to explore and merge the areas of interaction design and social design, particularly focusing on sensorial design.",
+    tags: ["Social Impact", "Product Design", "User Research"],
+    link: "https://www.artun.ee/en/co-creating-designs-to-support-intimacy-between-remote-families/",
+    venue: "Ongoing Research Project funded by Artistic Research Grant at Estonian Academy of Arts (2025 - 2027)"
   }
 ] as const
 
@@ -52,97 +59,73 @@ const ResearchPage = () => {
           </p>
         </motion.div>
 
-        {/* Research Projects */}
-        <motion.section 
-          className="space-y-12"
+        {/* Research Projects Section */}
+        <motion.div 
+          className="space-y-8"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <div className="space-y-4">
-            <span className="text-sm font-medium text-highlight uppercase tracking-wider">Research Projects</span>
-            <h2 className="font-serif text-3xl font-normal tracking-header">Current Research</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl">
-              Key research initiatives exploring human-centered design challenges
-            </p>
-          </div>
-          <div className="space-y-24">
-            {RESEARCH_PROJECTS.map((project, index) => (
-              <motion.div
-                key={project.slug}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
+          <h2 className="font-serif text-2xl md:text-3xl font-normal tracking-header">Research Projects</h2>
+          <div className="grid gap-6">
+            {RESEARCH_PROJECTS.map((project) => (
+              <a 
+                key={project.title}
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-6 rounded-xl border border-border hover:border-border-hover transition-colors"
               >
-                <ProjectCard {...{...project, tags: [...project.tags]}} />
-              </motion.div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="font-medium text-xl mb-1">{project.title}</h3>
+                    <p className="text-sm text-muted-foreground">{project.venue}</p>
+                  </div>
+                  <p className="text-muted-foreground">{project.description}</p>
+                  {/* <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span 
+                        key={tag}
+                        className="px-2 py-1 text-xs rounded-full bg-secondary text-secondary-foreground"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div> */}
+                </div>
+              </a>
             ))}
           </div>
-        </motion.section>
+        </motion.div>
 
-        {/* Publications */}
-        <motion.section 
-          className="space-y-12"
+        {/* Publications Section */}
+        {/* <motion.div 
+          className="space-y-8"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <div className="space-y-4">
-            <span className="text-sm font-medium text-highlight uppercase tracking-wider">Publications</span>
-            <h2 className="font-serif text-3xl font-normal tracking-header">Published Work</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl">
-              Published research papers and conference presentations
-            </p>
-          </div>
-          <div className="grid gap-8">
-            {PUBLICATIONS.map((publication, index) => (
-              <motion.a
-                key={index}
+          <h2 className="font-serif text-2xl md:text-3xl font-normal tracking-header">Published Work</h2>
+          <div className="grid gap-6">
+            {PUBLICATIONS.map((publication) => (
+              <a 
+                key={publication.title}
                 href={publication.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group rounded-lg border bg-card hover:bg-card/80 transition-colors p-8 hover:border-highlight/20"
+                className="block p-6 rounded-xl border border-border hover:border-border-hover transition-colors"
               >
-                <div className="flex justify-between items-start">
-                  <div className="space-y-4">
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-semibold">{publication.title}</h3>
-                      <p className="text-sm text-highlight font-medium">{publication.venue}</p>
-                    </div>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {publication.description}
-                    </p>
-                    <div className="flex items-center text-sm font-medium text-foreground">
-                      Read Paper
-                      <svg
-                        className="ml-2 h-4 w-4 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-foreground"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M7 17L17 7M17 7H7M17 7V17"
-                        />
-                      </svg>
-                    </div>
+                <div className="space-y-4">
+                  <div>
+                    <h3 className="font-medium text-xl mb-1">{publication.title}</h3>
+                    <p className="text-sm text-muted-foreground">{publication.venue}</p>
                   </div>
+                  <p className="text-muted-foreground">{publication.description}</p>
                 </div>
-              </motion.a>
+              </a>
             ))}
           </div>
-        </motion.section>
-
+        </motion.div> */}
       </motion.div>
     </PageTransition>
   )
