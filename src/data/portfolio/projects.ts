@@ -47,7 +47,7 @@ export const projects: ProjectData = {
       "Developed design guidelines for teletherapy platforms",
       "Presented findings at healthcare UX conference"
     ],
-    imageSrc: "/projects/salv-screening-flow.png",
+    imageSrc: "/projects/salv-navigation-redesign.png",
     featuredImageSrc: "/projects/work_2.png",
     tags: ["UX Research", "Healthcare", "Design Guidelines"],
     imagePosition: "left",
@@ -74,7 +74,7 @@ export const projects: ProjectData = {
       "Developed design guidelines for teletherapy platforms",
       "Presented findings at healthcare UX conference"
     ],
-    imageSrc: "/projects/salv-screening-flow.png",
+    imageSrc: "/projects/salv-ux-tweaks.png",
     featuredImageSrc: "/projects/work_2.png",
     tags: ["UX Research", "Healthcare", "Design Guidelines"],
     imagePosition: "left",
@@ -83,10 +83,10 @@ export const projects: ProjectData = {
   },
   "sensory-cube": {
     slug: "sensory-cube",
-    title: "Sensorial Rubik's Cube",
+    title: "Colorless Rubik's Cube",
     duration: "2023",
     role: "Product Designer & Researcher",
-    overview: "Research project exploring how sensory play can facilitate meaningful connections between different generations.",
+    overview: "Reimagining the Rubik’s cube for colorblind individuals. The Rubik's Cube, a puzzle that relies entirely on color recognition.",
     challenge: "Traditional social activities often fail to create meaningful engagement between different age groups, particularly in care home settings.",
     process: [
       "Ethnographic research in care homes",
@@ -100,35 +100,35 @@ export const projects: ProjectData = {
       "Positive feedback from care home staff",
       "Framework for designing intergenerational activities"
     ],
-    imageSrc: "/projects/salv-screening-flow.png",
+    imageSrc: "/projects/sensory-cube.png",
     tags: ["Research", "Social Impact", "Product Design"],
     imagePosition: "right",
     protected: true
   },
-  "testlio-navigation-redesign": {
-    slug: "testlio-navigation-redesign",
-    title: "Navigation Redesign at Testlio",
-    duration: "2024",
-    role: "Information Architect",
-    overview: "A complete overhaul of complex navigation systems to improve user orientation and reduce cognitive load.",
-    challenge: "Users were getting lost in deep navigation structures and struggling to find relevant information efficiently.",
-    process: [
-      "Card sorting sessions with users",
-      "Information architecture analysis",
-      "Tree testing and validation",
-      "Prototype development",
-      "Usability testing"
-    ],
-    impact: [
-      "50% reduction in navigation errors",
-      "30% improvement in task completion rates",
-      "Positive user satisfaction scores"
-    ],
-    imageSrc: "/projects/salv-screening-flow.png",
-    tags: ["Information Architecture", "UX Design", "Enterprise"],
-    imagePosition: "left",
-    protected: true
-  }
+  // "testlio-navigation-redesign": {
+  //   slug: "testlio-navigation-redesign",
+  //   title: "Navigation Redesign at Testlio",
+  //   duration: "2024",
+  //   role: "Information Architect",
+  //   overview: "A complete overhaul of complex navigation systems to improve user orientation and reduce cognitive load.",
+  //   challenge: "Users were getting lost in deep navigation structures and struggling to find relevant information efficiently.",
+  //   process: [
+  //     "Card sorting sessions with users",
+  //     "Information architecture analysis",
+  //     "Tree testing and validation",
+  //     "Prototype development",
+  //     "Usability testing"
+  //   ],
+  //   impact: [
+  //     "50% reduction in navigation errors",
+  //     "30% improvement in task completion rates",
+  //     "Positive user satisfaction scores"
+  //   ],
+  //   imageSrc: "/projects/salv-screening-flow.png",
+  //   tags: ["Information Architecture", "UX Design", "Enterprise"],
+  //   imagePosition: "left",
+  //   protected: true
+  // }
 }
 
 // Helper functions to work with projects
