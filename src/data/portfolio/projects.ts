@@ -79,7 +79,6 @@ export const projects: ProjectData = {
     tags: ["UX Research", "Healthcare", "Design Guidelines"],
     imagePosition: "left",
     splineScene: "https://prod.spline.design/BXAPJqmcTjkyeVqP/scene.splinecode",
-    featured: true,
     protected: true
   },
   "sensory-cube": {
@@ -103,7 +102,8 @@ export const projects: ProjectData = {
     ],
     imageSrc: "/projects/salv-screening-flow.png",
     tags: ["Research", "Social Impact", "Product Design"],
-    imagePosition: "right"
+    imagePosition: "right",
+    protected: true
   },
   "testlio-navigation-redesign": {
     slug: "testlio-navigation-redesign",
@@ -126,7 +126,8 @@ export const projects: ProjectData = {
     ],
     imageSrc: "/projects/salv-screening-flow.png",
     tags: ["Information Architecture", "UX Design", "Enterprise"],
-    imagePosition: "left"
+    imagePosition: "left",
+    protected: true
   }
 }
 

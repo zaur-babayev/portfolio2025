@@ -14,7 +14,7 @@ export default function Socials() {
   
   const socialLinks: SocialLink[] = [
     { name: 'Email', url: 'mail@zaurb.com', isEmail: true },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/zaur-babayev/' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/zaurb/' },
     { name: 'GitHub', url: 'https://github.com/zaur-babayev/' },
     { name: 'Are.na', url: 'https://are.na/zaur-babayev' },
     { name: 'Cosmos', url: 'https://www.cosmos.so/zaurb' },

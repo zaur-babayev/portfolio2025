@@ -87,7 +87,7 @@ export function AboutPage() {
         >
           <SectionHeader
             label="About"
-            title="Hey, my name is Zaur [/zaˈuɾ/]"
+            title="Hey, my name is Zaur [/zaˈooɾ/]"
             description="I'm a product designer and design researcher who loves creating / improving things and other people's lives. My main focus at the moment is in Fintech and Digital Well-being."
           />
         </motion.div>

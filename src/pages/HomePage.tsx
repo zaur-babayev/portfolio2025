@@ -204,9 +204,9 @@ export function HomePage() {
             transition={{ duration: 0.5 }}
           >
             <SectionHeader
-              label="Testimonials"
+              label="Feedback"
               title="What People Say"
-              description="Feedback from colleagues and clients I've had the pleasure to work with"
+              description="From colleagues I've had the pleasure to work with"
             />
           </motion.div>
           
