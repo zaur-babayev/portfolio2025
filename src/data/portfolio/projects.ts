@@ -3,7 +3,7 @@ import { ProjectData, Project } from './types'
 export const projects: ProjectData = {
   "salv-screening-flows": {
     slug: "salv-screening-flows",
-    title: "Salv Screening Flows",
+    title: "Screening Flows at Salv",
     duration: "2024",
     role: "Lead Product Designer",
     overview: "Designing a new feature to enhance the existing screening setup by adding Screening Flows for granular control.",
@@ -30,7 +30,7 @@ export const projects: ProjectData = {
   },
   "salv-navigation-redesign": {
     slug: "salv-navigation-redesign",
-    title: "Salv Navigation Redesign",
+    title: "Navigation Redesign at Salv",
     duration: "2023",
     role: "UX Researcher",
     overview: "Redesigning Salv’s navigation for clearer structure, improved efficiency, and seamless access to key tools.",
@@ -55,9 +55,36 @@ export const projects: ProjectData = {
     featured: true,
     protected: true
   },
-  "sensory-play": {
-    slug: "sensory-play",
-    title: "Intergenerational Sensory Play Research",
+  "salv-ux-tweaks": {
+    slug: "salv-ux-tweaks",
+    title: "Small UX Tweaks, Big Impact at Salv",
+    duration: "2023",
+    role: "UX Researcher",
+    overview: "Redesigning Salv’s navigation for clearer structure, improved efficiency, and seamless access to key tools.",
+    challenge: "The shift to remote therapy during the pandemic highlighted the need for better digital tools to maintain strong therapeutic relationships.",
+    process: [
+      "Conducted literature review on therapeutic alliance",  
+      "Interviewed 20+ therapists and patients",
+      "Developed experience prototypes",
+      "Conducted remote usability testing",
+      "Analyzed qualitative and quantitative data"
+    ],
+    impact: [
+      "Published research findings in UX design journal",
+      "Developed design guidelines for teletherapy platforms",
+      "Presented findings at healthcare UX conference"
+    ],
+    imageSrc: "/projects/salv-screening-flow.png",
+    featuredImageSrc: "/projects/work_2.png",
+    tags: ["UX Research", "Healthcare", "Design Guidelines"],
+    imagePosition: "left",
+    splineScene: "https://prod.spline.design/BXAPJqmcTjkyeVqP/scene.splinecode",
+    featured: true,
+    protected: true
+  },
+  "sensory-cube": {
+    slug: "sensory-cube",
+    title: "Sensorial Rubik's Cube",
     duration: "2023",
     role: "Product Designer & Researcher",
     overview: "Research project exploring how sensory play can facilitate meaningful connections between different generations.",
@@ -78,9 +105,9 @@ export const projects: ProjectData = {
     tags: ["Research", "Social Impact", "Product Design"],
     imagePosition: "right"
   },
-  "nav-restructure": {
-    slug: "nav-restructure",
-    title: "Navigation Panel Restructuring",
+  "testlio-navigation-redesign": {
+    slug: "testlio-navigation-redesign",
+    title: "Navigation Redesign at Testlio",
     duration: "2024",
     role: "Information Architect",
     overview: "A complete overhaul of complex navigation systems to improve user orientation and reduce cognitive load.",

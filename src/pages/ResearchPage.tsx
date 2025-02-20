@@ -143,36 +143,6 @@ const ResearchPage = () => {
           </div>
         </motion.section>
 
-        {/* Research Approach */}
-        <motion.section 
-          className="space-y-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="space-y-4">
-            <span className="text-sm font-medium text-highlight uppercase tracking-wider">Methodology</span>
-            <h2 className="text-3xl font-bold tracking-tight">Research Approach</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl">
-              My methodology for conducting human-centered research
-            </p>
-          </div>
-          <div className="prose prose-gray max-w-none text-muted-foreground leading-relaxed">
-            <p>
-              My research focuses on understanding human behavior and needs in digital spaces,
-              with a particular emphasis on healthcare technology and social connection.
-              I employ a mixed-methods approach, combining:
-            </p>
-            <ul>
-              <li>Qualitative user research through interviews and observations</li>
-              <li>Quantitative data analysis and behavioral metrics</li>
-              <li>Prototype testing and iterative design</li>
-              <li>Participatory design workshops</li>
-              <li>Literature review and academic collaboration</li>
-            </ul>
-          </div>
-        </motion.section>
       </motion.div>
     </PageTransition>
   )

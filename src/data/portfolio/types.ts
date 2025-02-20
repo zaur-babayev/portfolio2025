@@ -21,5 +21,8 @@ export type ProjectId =
   | 'teletherapy-research'
   | 'sensory-play'
   | 'salv-navigation-redesign'
+  | 'salv-ux-tweaks' 
+  | 'sensory-cube'
+  | 'testlio-navigation-redesign'
 
 export type ProjectData = Record<ProjectId, Project>
