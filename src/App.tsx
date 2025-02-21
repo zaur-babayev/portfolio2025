@@ -12,6 +12,7 @@ import { ThemeProvider } from '@/components/theme/theme-provider'
 import { AudioProvider } from './context/AudioContext'
 import { useLenis } from '@/hooks/useLenis'
 import { Analytics } from '@/components/Analytics'
+import { CookieConsent } from '@/components/CookieConsent'
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -40,6 +41,7 @@ function App() {
           <Analytics />
           <AnimatedRoutes />
           <Toaster />
+          <CookieConsent />
         </AudioProvider>
       </Router>
     </ThemeProvider>

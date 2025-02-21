@@ -1,7 +1,7 @@
 import posthog from 'posthog-js'
 
-// Only initialize in production & if a key is available
-if (import.meta.env.PROD) {
+// Only initialize in production & if a key is available and user has consented
+if (import.meta.env.PROD && localStorage.getItem('analytics-consent') === 'true') {
   posthog.init(
     import.meta.env.VITE_POSTHOG_KEY,
     {
@@ -29,13 +29,13 @@ if (import.meta.env.PROD) {
 }
 
 export const captureAnalytics = (eventName: string, properties?: Record<string, any>) => {
-  if (import.meta.env.PROD) {
+  if (import.meta.env.PROD && localStorage.getItem('analytics-consent') === 'true' && posthog) {
     posthog.capture(eventName, properties)
   }
 }
 
 export const capturePageview = (currentPath: string) => {
-  if (import.meta.env.PROD) {
+  if (import.meta.env.PROD && localStorage.getItem('analytics-consent') === 'true' && posthog) {
     posthog.capture('$pageview', {
       current_url: currentPath
     })
