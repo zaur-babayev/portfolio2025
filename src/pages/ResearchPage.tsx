@@ -74,7 +74,7 @@ const ResearchPage = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-6 rounded-xl border border-border hover:border-border-hover transition-colors"
+                className="block p-6 rounded-xl border border-border hover:border-border-hover transition-colors hover:bg-accent/50"
               >
                 <div className="space-y-4">
                   <div>

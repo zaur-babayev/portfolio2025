@@ -218,7 +218,7 @@ export function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="group bg-card p-8 rounded-lg border hover:border-foreground/20 dark:hover:border-foreground/50 transition-colors"
+                className="group bg-card p-8 rounded-lg border hover:bg-accent/50 transition-colors"
               >
                 <Quote className="w-8 h-8 mb-6 text-highlight" />
                 <p className="text-muted-foreground mb-8 leading-relaxed">{testimonial.quote}</p>

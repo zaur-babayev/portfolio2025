@@ -42,7 +42,7 @@ export function ProjectCard({
       <Link to={`/work/${slug}`} className={cn("block", className)}>
         <div className="mb-8 flex flex-col gap-4 rounded-lg border bg-card p-6 md:p-8 transition-colors hover:bg-accent/50">
           <div className="flex w-full flex-row items-center justify-between gap-4">
-            <h3 className="font-serif text-3xl font-bold truncate">{title}</h3>
+            <h3 className="font-serif text-3xl md:text-4xl">{title}</h3>
             {isProtected && <ProtectedIndicator className="flex-shrink-0" />}
           </div>
           <div className="relative flex w-full items-center justify-center">
