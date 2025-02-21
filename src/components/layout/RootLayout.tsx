@@ -33,7 +33,7 @@ const RootLayout = () => {
           <div className="flex flex-col items-center gap-6">
             <Socials />
             <p className="text-sm text-muted-foreground">
-              {new Date().getFullYear()} • Zaur Babayev all rights reserved
+              {new Date().getFullYear()} • Zaur Babayev all rights reserved 😎
             </p>
           </div>
         </div>
