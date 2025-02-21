@@ -26,6 +26,13 @@ import {
 
 const EXPERIENCE = [
   {
+    date: "2025 - Present",
+    title: "Teacher",
+    subtitle: "Estonian Academy of Arts • Tallinn, Estonia",
+    description:
+      "Digital Portfolio Development, Master’s-level course designed to help students build an exceptional portfolio. Which is key to securing jobs, internships, PhD positions, volunteer opportunities, and collaborations.",
+  },
+  {
     date: "2023 - Present",
     title: "Product Designer",
     subtitle: "Salv Technologies OÜ • Tallinn, Estonia",
@@ -87,7 +94,7 @@ export function AboutPage() {
         >
           <SectionHeader
             label="About"
-            title="Hey, my name is Zaur [/zaˈooɾ/]"
+            title="Hey, my name is Zaur [/zaˈuɾ/]"
             description="I'm a product designer and design researcher who loves creating / improving things and other people's lives. My main focus at the moment is in Fintech and Digital Well-being."
           />
         </motion.div>
@@ -154,7 +161,7 @@ export function AboutPage() {
           <Timeline items={[...EXPERIENCE]} />
           <div className="flex items-center pt-4">
             <Button variant="outline" size="lg" asChild>
-              <a href="/resume.pdf" download>
+              <a href="/resume-Zaur_Babayev.pdf" download>
                 <Download />
                 Download Resume
               </a>
