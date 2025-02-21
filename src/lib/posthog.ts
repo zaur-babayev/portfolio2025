@@ -5,12 +5,24 @@ if (import.meta.env.PROD) {
   posthog.init(
     import.meta.env.VITE_POSTHOG_KEY,
     {
-      api_host: 'https://eu.posthog.com', // Fixed host URL
+      api_host: 'https://eu.posthog.com',
       autocapture: true,
       capture_pageview: true,
       persistence: 'localStorage',
       loaded: (posthog) => {
         if (import.meta.env.DEV) posthog.debug()
+        
+        // Send immediate events to help PostHog detect the site
+        posthog.capture('site_loaded', {
+          url: window.location.href,
+          timestamp: new Date().toISOString()
+        })
+        
+        // Identify anonymous user
+        posthog.identify(undefined, {
+          $current_url: window.location.href,
+          $host: window.location.host
+        })
       }
     }
   )
