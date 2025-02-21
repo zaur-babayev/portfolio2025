@@ -55,7 +55,7 @@ const ResearchPage = () => {
           <span className="text-sm font-medium text-highlight uppercase tracking-wider">Research</span>
           <h1 className="font-serif text-4xl md:text-5xl font-normal tracking-header">Academic Work</h1>
           <p className="text-xl text-muted-foreground max-w-2xl leading-relaxed">
-            Exploring the intersection of human behavior, technology, and design through rigorous research and experimentation.
+            Exploring the intersection of human behavior, technology, and design through academic research and experimentation.
           </p>
         </motion.div>
 
@@ -66,7 +66,7 @@ const ResearchPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="font-serif text-2xl md:text-3xl font-normal tracking-header">Research Projects</h2>
+          {/* <h2 className="font-serif text-2xl md:text-3xl font-normal tracking-header">Research Projects</h2> */}
           <div className="grid gap-6">
             {RESEARCH_PROJECTS.map((project) => (
               <a 
@@ -74,11 +74,11 @@ const ResearchPage = () => {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block p-6 rounded-xl border border-border hover:border-border-hover transition-colors hover:bg-accent/50"
+                className="block p-6 md:p-8 rounded-xl border border-border hover:border-border-hover transition-colors hover:bg-accent/50"
               >
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-medium text-xl mb-1">{project.title}</h3>
+                    <h3 className="font-serif text-2xl md:text-3xl mb-2">{project.title}</h3>
                     <p className="text-sm text-muted-foreground">{project.venue}</p>
                   </div>
                   <p className="text-muted-foreground">{project.description}</p>
