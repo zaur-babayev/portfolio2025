@@ -26,6 +26,7 @@
     "lenis": "^1.1.20",
     "lucide-react": "^0.474.0",
     "midi-converter": "^0.1.5",
+    "posthog-js": "^1.222.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^7.1.3",

@@ -11,6 +11,7 @@ import ProjectDetailPage from '@/pages/ProjectDetailPage'
 import { ThemeProvider } from '@/components/theme/theme-provider'
 import { AudioProvider } from './context/AudioContext'
 import { useLenis } from '@/hooks/useLenis'
+import { Analytics } from '@/components/Analytics'
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -33,9 +34,10 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <ThemeProvider storageKey="portfolio-theme">
+    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <Router>
         <AudioProvider>
+          <Analytics />
           <AnimatedRoutes />
           <Toaster />
         </AudioProvider>
