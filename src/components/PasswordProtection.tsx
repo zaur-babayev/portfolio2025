@@ -12,8 +12,7 @@ import {
 } from '@/lib/auth'
 import { toast } from '@/hooks/use-toast'
 
-// In a real app, these would be stored securely, not hardcoded
-const PROJECT_PASSWORD = import.meta.env.VITE_PROJECT_PASSWORD
+// Remove hardcoded password reference
 const DEFAULT_EXPIRY_HOURS = 24 // Default expiry time in hours
 
 interface PasswordProtectionProps {
@@ -77,22 +76,51 @@ export function PasswordProtection({ onUnlock, projectId }: PasswordProtectionPr
     }
   }, [onUnlock, projectId])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (password === PROJECT_PASSWORD) {
-      // Create a new access token
-      const token = createAccessToken(projectId, expiryHours)
-      setTokenValue(token.value)
-      setError(false)
-      onUnlock()
+    
+    try {
+      // Validate password via the API endpoint
+      const response = await fetch('/api/validate-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          password,
+          type: 'project'
+        }),
+      });
       
-      toast({
-        title: "Access Granted",
-        description: `You now have access to this project for ${expiryHours} hours.`,
-      })
-    } else {
+      const data = await response.json();
+      
+      if (data.valid) {
+        // Create a new access token
+        const token = createAccessToken(projectId, expiryHours)
+        setTokenValue(token.value)
+        setError(false)
+        onUnlock()
+        
+        toast({
+          title: "Access Granted",
+          description: `You now have access to this project for ${expiryHours} hours.`,
+        })
+      } else {
+        setError(true)
+        toast({
+          title: "Access Denied",
+          description: "The password you entered is incorrect.",
+          variant: "destructive"
+        })
+      }
+    } catch (error) {
+      console.error('Error validating password:', error);
       setError(true)
-      setPassword('')
+      toast({
+        title: "Error",
+        description: "There was a problem validating your password. Please try again.",
+        variant: "destructive"
+      })
     }
   }
 

@@ -54,29 +54,48 @@ export default function AdminPage() {
   }, [isAuthenticated, refreshKey])
   
   // Handle admin login
-  const handleAdminLogin = (e: React.FormEvent) => {
+  const handleAdminLogin = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    // In a real app, this would be a secure authentication process
-    // For demo purposes, we're using a simple password check
-    if (adminPassword === import.meta.env.VITE_PROJECT_PASSWORD) {
-      setIsAuthenticated(true)
-      localStorage.setItem('portfolio_admin', 'true')
+    try {
+      // Validate admin password via the API endpoint
+      const response = await fetch('/api/validate-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          password: adminPassword,
+          type: 'admin'
+        }),
+      });
+      
+      const data = await response.json();
+      
+      if (data.valid) {
+        setIsAuthenticated(true)
+        localStorage.setItem('portfolio_admin', 'true')
+        toast({
+          title: "Admin Access Granted",
+          description: "You now have access to the admin panel.",
+        })
+      } else {
+        toast({
+          title: "Access Denied",
+          description: "The password you entered is incorrect.",
+          variant: "destructive"
+        })
+      }
+    } catch (error) {
+      console.error('Error validating admin password:', error);
       toast({
-        title: "Admin Access Granted",
-        description: "You now have access to the admin panel.",
-      })
-    } else {
-      toast({
-        title: "Access Denied",
-        description: "Incorrect admin password.",
+        title: "Error",
+        description: "There was a problem validating your password. Please try again.",
         variant: "destructive"
       })
     }
-    
-    setAdminPassword('')
   }
-  
+
   // Handle request approval
   const handleApproveRequest = async (requestId: string) => {
     const token = approveAccessRequest(requestId)
