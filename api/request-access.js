@@ -104,7 +104,7 @@ export default async function handler(req, res) {
         <body>
           <div class="container">
             <div class="header">
-              <img src="https://raw.githubusercontent.com/zaurbabayev/portfolio-assets/main/logo.png" alt="Logo" width="40" height="40" style="display: block;">
+              <img src="${process.env.SITE_URL}/images/icon.png" alt="Logo" width="40" height="40" style="display: block;">
             </div>
             
             <h2>New Access Request</h2>
