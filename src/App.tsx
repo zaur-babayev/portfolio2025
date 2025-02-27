@@ -8,6 +8,7 @@ import AboutPage from '@/pages/AboutPage'
 import WorkPage from '@/pages/WorkPage'
 import ResearchPage from '@/pages/ResearchPage'
 import ProjectDetailPage from '@/pages/ProjectDetailPage'
+import AdminPage from '@/pages/AdminPage'
 import { ThemeProvider } from '@/components/theme/theme-provider'
 import { AudioProvider } from './context/AudioContext'
 import { useLenis } from '@/hooks/useLenis'
@@ -27,6 +28,7 @@ function AnimatedRoutes() {
           <Route path="/work" element={<WorkPage />} />
           <Route path="/work/:slug" element={<ProjectDetailPage />} />
           <Route path="/research" element={<ResearchPage />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Route>
       </RoutesComponent>
     </AnimatePresence>

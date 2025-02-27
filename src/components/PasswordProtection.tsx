@@ -2,73 +2,111 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { motion } from 'framer-motion'
-import { Lock } from 'lucide-react'
+import { Lock, Timer, Key } from 'lucide-react'
+import { RequestAccessForm } from './RequestAccessForm'
+import { 
+  createAccessToken, 
+  validateAccessToken, 
+  cleanupExpiredTokens, 
+  getStoredTokens
+} from '@/lib/auth'
+import { toast } from '@/hooks/use-toast'
 
 // In a real app, these would be stored securely, not hardcoded
 const PROJECT_PASSWORD = import.meta.env.VITE_PROJECT_PASSWORD
-const PASSWORD_EXPIRY_HOURS = 24 // Password expires after 24 hours
-
-interface StoredPassword {
-  value: string
-  expires: number
-}
+const DEFAULT_EXPIRY_HOURS = 24 // Default expiry time in hours
 
 interface PasswordProtectionProps {
   onUnlock: () => void
+  projectId: string
 }
 
-export function PasswordProtection({ onUnlock }: PasswordProtectionProps) {
+export function PasswordProtection({ onUnlock, projectId }: PasswordProtectionProps) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState(false)
-  const [savedPassword, setSavedPassword] = useState<string | null>(null)
+  const [tokenValue, setTokenValue] = useState<string | null>(null)
+  const [expiryHours, setExpiryHours] = useState(DEFAULT_EXPIRY_HOURS)
+  const [showRequestForm, setShowRequestForm] = useState(false)
+  const [isTokenExpired, setIsTokenExpired] = useState(false)
 
   useEffect(() => {
-    // Check if password is saved and not expired
-    const storedData = localStorage.getItem('project_password')
-    if (storedData) {
-      try {
-        const stored: StoredPassword = JSON.parse(storedData)
-        const now = new Date().getTime()
+    // Clean up expired tokens on component mount
+    cleanupExpiredTokens()
+    
+    // Check if there's a valid token for this project
+    const urlParams = new URLSearchParams(window.location.search)
+    const accessToken = urlParams.get('access_token')
+    
+    if (accessToken) {
+      // If token is in URL, validate it
+      if (validateAccessToken(projectId, accessToken)) {
+        setTokenValue(accessToken)
+        onUnlock()
         
-        if (now < stored.expires) {
-          setSavedPassword(stored.value)
-          if (stored.value === PROJECT_PASSWORD) {
-            onUnlock()
-          }
-        } else {
-          // Password expired, remove it
-          localStorage.removeItem('project_password')
-        }
-      } catch (e) {
-        // Invalid stored data, remove it
-        localStorage.removeItem('project_password')
+        // Remove token from URL without reloading the page
+        const newUrl = window.location.pathname
+        window.history.replaceState({}, document.title, newUrl)
+        
+        toast({
+          title: "Access Granted",
+          description: "You've been granted temporary access to this project.",
+        })
+      } else {
+        setIsTokenExpired(true)
+        toast({
+          title: "Access Denied",
+          description: "The access token is invalid or has expired.",
+          variant: "destructive"
+        })
+      }
+    } else {
+      // Check for existing valid tokens in localStorage
+      const storedTokens = getStoredTokens()
+      const now = new Date().getTime()
+      
+      // Find a valid token for this project
+      const validToken = storedTokens.find(token => 
+        token.projectId === projectId && 
+        token.expires > now
+      )
+      
+      if (validToken) {
+        setTokenValue(validToken.value)
+        onUnlock()
       }
     }
-  }, [onUnlock])
+  }, [onUnlock, projectId])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (password === PROJECT_PASSWORD) {
-      // Store password with expiration time
-      const now = new Date().getTime()
-      const expires = now + (PASSWORD_EXPIRY_HOURS * 60 * 60 * 1000) // Convert hours to milliseconds
-      
-      const storedData: StoredPassword = {
-        value: password,
-        expires
-      }
-      
-      localStorage.setItem('project_password', JSON.stringify(storedData))
+      // Create a new access token
+      const token = createAccessToken(projectId, expiryHours)
+      setTokenValue(token.value)
       setError(false)
       onUnlock()
+      
+      toast({
+        title: "Access Granted",
+        description: `You now have access to this project for ${expiryHours} hours.`,
+      })
     } else {
       setError(true)
       setPassword('')
     }
   }
 
-  if (savedPassword === PROJECT_PASSWORD) {
+  if (tokenValue && validateAccessToken(projectId, tokenValue)) {
     return null
+  }
+  
+  if (showRequestForm) {
+    return (
+      <RequestAccessForm 
+        projectId={projectId}
+        onCancel={() => setShowRequestForm(false)}
+      />
+    )
   }
 
   return (
@@ -84,8 +122,11 @@ export function PasswordProtection({ onUnlock }: PasswordProtectionProps) {
         <h2 className="text-2xl font-bold">Password Protected</h2>
         <p className="text-muted-foreground max-w-sm">
           This project is password protected. Please enter the password to view it.
-          <br />
-          <span className="text-sm">Access expires after {PASSWORD_EXPIRY_HOURS} hours.</span>
+          {isTokenExpired && (
+            <span className="block mt-2 text-destructive">
+              Your previous access token has expired.
+            </span>
+          )}
         </p>
       </div>
 
@@ -104,9 +145,43 @@ export function PasswordProtection({ onUnlock }: PasswordProtectionProps) {
             </p>
           )}
         </div>
+        
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <Timer className="w-4 h-4 text-muted-foreground" />
+            <label htmlFor="expiry" className="text-sm text-muted-foreground">
+              Access Duration
+            </label>
+          </div>
+          <select
+            id="expiry"
+            value={expiryHours}
+            onChange={(e) => setExpiryHours(Number(e.target.value))}
+            className="w-full px-3 py-2 border rounded-md bg-background"
+          >
+            <option value="1">1 hour</option>
+            <option value="4">4 hours</option>
+            <option value="24">24 hours</option>
+            <option value="72">3 days</option>
+            <option value="168">7 days</option>
+          </select>
+        </div>
+        
         <Button type="submit" className="w-full">
+          <Key className="w-4 h-4 mr-2" />
           Unlock Project
         </Button>
+        
+        <div className="pt-2">
+          <Button 
+            type="button" 
+            variant="link" 
+            className="text-sm"
+            onClick={() => setShowRequestForm(true)}
+          >
+            Don't have the password? Request access
+          </Button>
+        </div>
       </form>
     </motion.div>
   )

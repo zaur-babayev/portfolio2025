@@ -1,0 +1,14 @@
+{
+  "name": "email-api-test",
+  "version": "1.0.0",
+  "description": "Test script for email API",
+  "main": "test-email-api.js",
+  "type": "module",
+  "scripts": {
+    "test": "node test-email-api.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.0"
+  }
+}
