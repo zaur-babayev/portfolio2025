@@ -34,10 +34,8 @@ export default async function handler(req, res) {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Access Granted</title>
           <style>
-            @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-            
             body {
-              font-family: 'Inter', sans-serif;
+              font-family: 'Helvetica', Arial, sans-serif;
               margin: 0;
               padding: 0;
               background-color: #f9fafb;
@@ -51,7 +49,7 @@ export default async function handler(req, res) {
               padding: 20px;
               background-color: #ffffff;
               border: 1px solid #e5e7eb;
-              border-radius: 0.75rem;
+              border-radius: 8px;
             }
             
             .header {
@@ -60,16 +58,12 @@ export default async function handler(req, res) {
               margin-bottom: 24px;
             }
             
-            .logo {
-              width: 40px;
-              height: 40px;
-            }
-            
             h2 {
               font-weight: 600;
               font-size: 20px;
               margin-top: 24px;
               margin-bottom: 16px;
+              color: #111827;
             }
             
             p {
@@ -86,26 +80,25 @@ export default async function handler(req, res) {
               color: #111827;
             }
             
+            .button-container {
+              margin-top: 24px;
+            }
+            
             .button {
               display: inline-block;
               background-color: #111827;
-              color: #ffffff;
+              color: #ffffff !important;
               padding: 10px 16px;
-              margin-top: 24px;
               text-decoration: none;
-              border-radius: 0.375rem;
+              border-radius: 6px;
               font-weight: 500;
               font-size: 14px;
-            }
-            
-            .button:hover {
-              background-color: #1f2937;
             }
             
             .access-code {
               background-color: #f3f4f6;
               padding: 12px;
-              border-radius: 0.375rem;
+              border-radius: 6px;
               font-family: monospace;
               margin: 16px 0;
               font-size: 16px;
@@ -124,11 +117,7 @@ export default async function handler(req, res) {
         <body>
           <div class="container">
             <div class="header">
-              <!-- Logo SVG -->
-              <svg width="40" height="40" viewBox="0 0 72 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19.3 21.4H49.5026L71.3 0H0V34.8H19.3V21.4Z" fill="#111827" />
-                <path d="M52 48.6H21.7974L0 70H71.3V35.2H52V48.6Z" fill="#111827" />
-              </svg>
+              <img src="${process.env.SITE_URL}/images/icon.png" alt="Logo" width="40" height="40" style="display: block;">
             </div>
             
             <h2>Access Granted</h2>
@@ -141,9 +130,11 @@ export default async function handler(req, res) {
               ${accessCode}
             </div>
             
-            <a href="${projectUrl}" class="button">
-              View Project
-            </a>
+            <div class="button-container">
+              <a href="${projectUrl}" style="display: inline-block; background-color: #111827; color: #ffffff; padding: 10px 16px; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 14px;">
+                View Project
+              </a>
+            </div>
             
             <p style="margin-top: 24px;">This access code is unique to you and should not be shared with others.</p>
             
