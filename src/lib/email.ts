@@ -50,7 +50,7 @@ export async function sendAccessRequestEmail(
     );
 
     if (response.status === 200) {
-      console.log('Access request email sent successfully!');
+      console.log('Access request sent successfully!');
       return true;
     } else {
       console.error('Failed to send access request email:', response);
