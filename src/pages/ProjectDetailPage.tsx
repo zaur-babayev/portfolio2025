@@ -43,7 +43,10 @@ export default function ProjectDetailPage() {
             <ArrowLeft className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1" />
             Back
           </Button>
-          <PasswordProtection onUnlock={() => setIsUnlocked(true)} />
+          <PasswordProtection 
+            onUnlock={() => setIsUnlocked(true)} 
+            projectId={project.slug}
+          />
         </div>
       </PageTransition>
     )
