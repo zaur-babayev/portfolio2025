@@ -19,7 +19,7 @@ export default async function handler(req, res) {
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Generate project URL with access code
-    const projectUrl = `${process.env.SITE_URL}/projects/${projectId}?code=${accessCode}`;
+    const projectUrl = `${process.env.SITE_URL}/work/${projectId}?code=${accessCode}`;
 
     // Send approval email to requester
     const { data, error } = await resend.emails.send({
