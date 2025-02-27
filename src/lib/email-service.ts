@@ -61,7 +61,7 @@ export async function sendAccessApprovalEmail(
         email: requesterEmail,
         projectId,
         projectTitle: project?.title,
-        accessToken,
+        accessCode: accessToken,
       }),
     });
 
