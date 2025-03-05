@@ -17,7 +17,7 @@ export default function Socials() {
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/zaurb/' },
     { name: 'GitHub', url: 'https://github.com/zaur-babayev/' },
     { name: 'Are.na', url: 'https://are.na/zaur-babayev' },
-    { name: 'Cosmos', url: 'https://www.cosmos.so/zaurb' },
+    { name: 'Cosmos', url: 'https://www.cosmos.so/zaur' },
     { name: 'ETIS', url: 'https://www.etis.ee/CV/zaur_babayev/eng/' },
   ];
 
