@@ -17,6 +17,7 @@ export interface Project {
 }
 
 export type ProjectId = 
+  | 'overtones'
   | 'salv-screening-flows'
   | 'teletherapy-research'
   | 'sensory-play'

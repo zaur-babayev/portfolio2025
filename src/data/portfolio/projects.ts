@@ -1,6 +1,32 @@
 import { ProjectData, Project } from './types'
 
 export const projects: ProjectData = {
+  "overtones": {
+    slug: "overtones",
+    title: "Overtones - Music Note Taking App",
+    duration: "2026",
+    role: "Designer & Developer",
+    overview: "Overtones is a note-taking app designed specifically for musicians. It helps capture musical ideas — chords, melodies, lyrics, references, and thoughts — in the moment, without breaking creative flow. Instead of forcing music into generic note apps, Overtones is built around how musicians actually think and work.",
+    challenge: "Musicians often rely on a mix of voice memos, screenshots, chat drafts, and generic notes to capture ideas. Existing music tools are either too technical and heavy, or too abstract to support musical thinking. There is no single, lightweight place to collect and connect musical ideas.",
+    process: [
+      "Conducted user interviews with 15+ musicians across different instruments and experience levels",
+      "Mapped how musicians capture ideas during practice, writing, and listening",
+      "Identified key pain points around speed, context, and recall",
+      "Designed wireframes and interactive prototypes focused on low-friction input",
+      "Iterated on navigation and structure to support non-linear thinking"
+    ],
+    impact: [
+      "Created a focused alternative to generic note-taking for musicians",
+      "Reduced friction in capturing ideas during writing and listening sessions",
+      "Validated core flows through repeated user testing and iteration"
+    ],
+    imageSrc: "/projects/overtones.png",
+    featuredImageSrc: "/projects/work_1.png",
+    tags: ["Product Design", "UX Research", "Design System"],
+    imagePosition: "right",
+    featured: true,
+    protected: true
+  },
   "salv-screening-flows": {
     slug: "salv-screening-flows",
     title: "Screening Flows at Salv",
