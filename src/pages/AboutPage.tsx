@@ -27,13 +27,20 @@ import {
 const EXPERIENCE = [
   {
     date: "2025 - Present",
-    title: "Teacher",
+    title: "Product Designer",
+    subtitle: "Bondora Capital OÜ • Tallinn, Estonia",
+    description:
+      "Focused on Bondora’s Go & Grow investment product. Working on core user flows such as onboarding, investing, and dashboards, with a focus on clarity, trust, and long-term usability. Leading the Design System initiative across product teams, including structure, components, and documentation. Driving accessibility work to ensure products meet EU accessibility requirements, supporting teams with guidelines, reviews, and practical implementation.",
+  },
+  {
+    date: "2025 - Present",
+    title: "Lecturer",
     subtitle: "Estonian Academy of Arts • Tallinn, Estonia",
     description:
       "Digital Portfolio Development, Master’s-level course designed to help students build an exceptional portfolio. Which is key to securing jobs, internships, PhD positions, volunteer opportunities, and collaborations.",
   },
   {
-    date: "2023 - Present",
+    date: "2023 - 2025",
     title: "Product Designer",
     subtitle: "Salv Technologies OÜ • Tallinn, Estonia",
     description:
@@ -55,7 +62,7 @@ const EXPERIENCE = [
   },
   {
     date: "2019 - 2020",
-    title: "Internal Communication Assistant -> Specialist",
+    title: "Internal Communication Specialist",
     subtitle: "PASHA Insurance OJSC • Baku, Azerbaijan",
     description:
       "Redesigned and developed internal Idea Tracking Center platform. 30% increase in idea submission rate over 2 quarters. Worked on an Internal Loyalty Platform covering about 5000 employees and 5 companies. My main role was to establish brand language and assist with user experience.",
