@@ -37,7 +37,7 @@ const EXPERIENCE = [
     title: "Lecturer",
     subtitle: "Estonian Academy of Arts • Tallinn, Estonia",
     description:
-      "Digital Portfolio Development, Master’s-level course designed to help students build an exceptional portfolio. Which is key to securing jobs, internships, PhD positions, volunteer opportunities, and collaborations.",
+      "Digital Portfolio Development, a Master’s-level course focused on helping students build a compelling portfolio to support applications for jobs, internships, PhD positions, volunteer work, and collaborations.",
   },
   {
     date: "2023 - 2025",
@@ -51,7 +51,7 @@ const EXPERIENCE = [
     title: "Product Designer",
     subtitle: "Testlio OÜ • Tallinn, Estonia",
     description:
-      "Was responsible for internal platform experience serving numerous internal teams and 10,000 freelance testers. Product designer for deprecation efforts of the older platform version.",
+      "Responsible for the internal platform experience used by multiple internal teams and over 10,000 freelance testers. Led product design for the deprecation of the legacy platform.",
   },
   {
     date: "2020 - 2021",
