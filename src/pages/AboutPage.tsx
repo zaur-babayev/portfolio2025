@@ -218,7 +218,7 @@ export function AboutPage() {
             />
             <Book
               title="Neuromancer"
-              coverUrl="https://ia802309.us.archive.org/view_archive.php?archive=/20/items/l_covers_0008/l_covers_0008_90.zip&file=0008904053-L.jpg"
+              coverUrl="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1752514552i/6088007.jpg"
               author="William Gibson"
               link="https://www.goodreads.com/book/show/6088007-neuromancer"
             />
