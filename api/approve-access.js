@@ -139,7 +139,7 @@ export default async function handler(req, res) {
             <p style="margin-top: 24px;">This access code is unique to you and should not be shared with others.</p>
             
             <div class="footer">
-              ${new Date().getFullYear()} • Zaur Babayev all rights reserved 😎
+              ${new Date().getFullYear()}
             </div>
           </div>
         </body>
