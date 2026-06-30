@@ -25,8 +25,15 @@ import {
 } from "@/components/ui/carousel";
 
 const EXPERIENCE = [
+    {
+    date: "2026 - Present",
+    title: "Senior Product Designer",
+    subtitle: "Go & Grow (by Bondora Capital OÜ) • Tallinn, Estonia",
+    description:
+      "Leading design across Go & Grow’s core investment experience, owning end-to-end flows like onboarding, investing, and dashboards with a focus on clarity, trust, and long-term usability. Driving the Design System initiative across product teams, from structure and components to documentation and adoption. Setting the direction for accessibility, ensuring products meet EU requirements through guidelines, reviews, and hands-on implementation support, while mentoring designers and shaping design quality at the product level.",
+  },
   {
-    date: "2025 - Present",
+    date: "2025 - 2026",
     title: "Product Designer",
     subtitle: "Bondora Capital OÜ • Tallinn, Estonia",
     description:
@@ -100,8 +107,7 @@ export function AboutPage() {
           transition={{ duration: 0.5 }}
         >
           <SectionHeader
-            label="About"
-            title="Hey, my name is Zaur [/zaˈuɾ/]"
+            title="Well hi there, my name is Zaur [/zaˈuɾ/]"
             description="I'm a product designer and design researcher who loves creating / improving things and other people's lives. My main focus at the moment is in Fintech and Digital Well-being."
           />
         </motion.div>
@@ -162,8 +168,7 @@ export function AboutPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="space-y-4">
-            <SectionLabel>Experience</SectionLabel>
-            <H2>Professional Journey</H2>
+            <H2>Experience</H2>
           </div>
           <Timeline items={[...EXPERIENCE]} />
           <div className="flex items-center pt-4">
@@ -185,7 +190,6 @@ export function AboutPage() {
           transition={{ duration: 0.5 }}
         >
           <div className="space-y-4">
-            <SectionLabel>Education</SectionLabel>
             <H2>Academic Background</H2>
           </div>
           <Timeline items={[...EDUCATION]} />
@@ -207,15 +211,15 @@ export function AboutPage() {
           <div className="hidden md:grid grid-cols-1 items-center justify-items-center gap-8 md:grid-cols-3 lg:grid-cols-4">
             <Book
               title="Hard Rain Falling"
-              coverUrl="https://ia600202.us.archive.org/view_archive.php?archive=/5/items/olcovers630/olcovers630-L.zip&file=6305862-L.jpg"
+              coverUrl="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1682851327i/6553843.jpg"
               author="Don Carpenter"
               link="https://www.goodreads.com/book/show/6553843-hard-rain-falling"
             />
             <Book
-              title="The Stranger"
-              coverUrl="https://covers.openlibrary.org/b/id/14814329-L.jpg"
-              author="Albert Camus"
-              link="https://www.goodreads.com/book/show/49552.The_Stranger"
+              title="Rejection"
+              coverUrl="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1757697215i/199635125.jpg"
+              author="Tony Tulathimutte"
+              link="https://www.goodreads.com/book/show/199635125-rejection?ref=nav_sb_ss_1_9"
             />
             <Book
               title="User Friendly"
