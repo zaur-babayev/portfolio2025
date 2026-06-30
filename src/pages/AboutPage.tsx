@@ -93,6 +93,60 @@ const EDUCATION = [
   },
 ] as const;
 
+const BOOKS = [
+  {
+    title: "Hard Rain Falling",
+    coverUrl: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1682851327i/6553843.jpg",
+    author: "Don Carpenter",
+    link: "https://www.goodreads.com/book/show/6553843-hard-rain-falling",
+  },
+  {
+    title: "Rejection",
+    coverUrl: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1757697215i/199635125.jpg",
+    author: "Tony Tulathimutte",
+    link: "https://www.goodreads.com/book/show/199635125-rejection?ref=nav_sb_ss_1_9",
+  },
+  {
+    title: "User Friendly",
+    coverUrl: "https://ia600404.us.archive.org/view_archive.php?archive=/33/items/l_covers_0010/l_covers_0010_17.zip&file=0010174106-L.jpg",
+    author: "Cliff Kuang",
+    link: "https://www.goodreads.com/book/show/41940285-user-friendly",
+  },
+  {
+    title: "Neuromancer",
+    coverUrl: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1752514552i/6088007.jpg",
+    author: "William Gibson",
+    link: "https://www.goodreads.com/book/show/6088007-neuromancer",
+  },
+] as const;
+
+const RECORDS = [
+  {
+    title: "Romance",
+    artist: "Fontaines D.C.",
+    coverUrl: "https://i.discogs.com/R9FyWMod4CmVozI5xWbVqbAHCQFl-Wd5PDsoy3oUxKk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNTQx/MDM4LTE3MjY2ODM5/NDUtNjAyMi5qcGVn.jpeg",
+    link: "https://fontainesdc.bandcamp.com/album/romance",
+  },
+  {
+    title: "Dummy",
+    artist: "Portishead",
+    coverUrl: "https://i.discogs.com/42s0M3miRlGBRZYei2eVcwGQRXu-KlfaRn348rqIgIA/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU4MTIx/Ni0xMTM0MjE2MTY2/LmpwZWc.jpeg",
+    link: "https://www.discogs.com/master/5542-Portishead-Dummy",
+  },
+  {
+    title: "My Method Actor",
+    artist: "Nilüfer Yanya",
+    coverUrl: "https://i.discogs.com/iS8FEGDI8DuWdQ5qu9P9p9hLpALlerNkRRzIoQKgThI/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzA1/NzY5LTE3MjYwMjY2/MDAtNzA4Ni5qcGVn.jpeg",
+    link: "https://niluferyanya.bandcamp.com/album/my-method-actor",
+  },
+  {
+    title: "In Rainbows",
+    artist: "Radiohead",
+    coverUrl: "https://i.discogs.com/7y0jjFTZp88uBO380fsYcO36I3ex_er3lZn8COq90Vc/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNzQy/OTYtMTY5NzMyNzQ3/Ny0yMzQ1LmpwZWc.jpeg",
+    link: "https://radiohead.bandcamp.com/album/in-rainbows",
+  },
+] as const;
+
 export function AboutPage() {
   const [showAscii, setShowAscii] = useState(false);
 
@@ -204,35 +258,13 @@ export function AboutPage() {
           className="space-y-8"
         >
           <SectionHeader
-            label="Reading List"
             title="Recent books I've read"
             description="Trying to squeeze in some reading time during the day. Kindle has been a game-changer for this."
           />
           <div className="hidden md:grid grid-cols-1 items-center justify-items-center gap-8 md:grid-cols-3 lg:grid-cols-4">
-            <Book
-              title="Hard Rain Falling"
-              coverUrl="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1682851327i/6553843.jpg"
-              author="Don Carpenter"
-              link="https://www.goodreads.com/book/show/6553843-hard-rain-falling"
-            />
-            <Book
-              title="Rejection"
-              coverUrl="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1757697215i/199635125.jpg"
-              author="Tony Tulathimutte"
-              link="https://www.goodreads.com/book/show/199635125-rejection?ref=nav_sb_ss_1_9"
-            />
-            <Book
-              title="User Friendly"
-              coverUrl="https://ia600404.us.archive.org/view_archive.php?archive=/33/items/l_covers_0010/l_covers_0010_17.zip&file=0010174106-L.jpg"
-              author="Cliff Kuang"
-              link="https://www.goodreads.com/book/show/41940285-user-friendly"
-            />
-            <Book
-              title="Neuromancer"
-              coverUrl="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1752514552i/6088007.jpg"
-              author="William Gibson"
-              link="https://www.goodreads.com/book/show/6088007-neuromancer"
-            />
+            {BOOKS.map((book) => (
+              <Book key={book.title} {...book} />
+            ))}
           </div>
           <div className="md:hidden w-full relative px-0">
             <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-background to-transparent z-10" />
@@ -245,38 +277,11 @@ export function AboutPage() {
               className="w-full"
             >
               <CarouselContent className="-ml-1 flex items-center">
-                <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
-                  <Book
-                    title="Hard Rain Falling"
-                    coverUrl="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1682851327i/6553843.jpg"
-                    author="Don Carpenter"
-                    link="https://www.goodreads.com/book/show/6553843-hard-rain-falling"
-                  />
-                </CarouselItem>
-                <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
-                  <Book
-                    title="Rejection"
-                    coverUrl="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1757697215i/199635125.jpg"
-                    author="Tony Tulathimutte"
-                    link="https://www.goodreads.com/book/show/199635125-rejection?ref=nav_sb_ss_1_9"
-                  />
-                </CarouselItem>
-                <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
-                  <Book
-                    title="User Friendly"
-                    coverUrl="https://ia600404.us.archive.org/view_archive.php?archive=/33/items/l_covers_0010/l_covers_0010_17.zip&file=0010174106-L.jpg"
-                    author="Cliff Kuang"
-                    link="https://www.goodreads.com/book/show/41940285-user-friendly"
-                  />
-                </CarouselItem>
-                <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
-                  <Book
-                    title="Neuromancer"
-                    coverUrl="https://ia802309.us.archive.org/view_archive.php?archive=/20/items/l_covers_0008/l_covers_0008_90.zip&file=0008904053-L.jpg"
-                    author="William Gibson"
-                    link="https://www.goodreads.com/book/show/6088007-neuromancer"
-                  />
-                </CarouselItem>
+                {BOOKS.map((book) => (
+                  <CarouselItem key={book.title} className="pl-1 basis-[95%] flex items-center justify-center">
+                    <Book {...book} />
+                  </CarouselItem>
+                ))}
               </CarouselContent>
               <CarouselPrevious className="absolute -left-2 hover:bg-background/80 hover:text-foreground z-20" />
               <CarouselNext className="absolute -right-2 hover:bg-background/80 hover:text-foreground z-20" />
@@ -293,35 +298,13 @@ export function AboutPage() {
           className="space-y-8 mt-24"
         >
           <SectionHeader
-            label="Music Collection"
             title="Albums I've been enjoying lately"
             description="I always listen to music while working. These are the albums that have been helping me get into the flow."
           />
           <div className="hidden md:grid grid-cols-3 lg:grid-cols-4 items-center justify-items-center gap-8">
-            <Record
-              title="Romance"
-              artist="Fontaines D.C."
-              coverUrl="https://i.discogs.com/R9FyWMod4CmVozI5xWbVqbAHCQFl-Wd5PDsoy3oUxKk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNTQx/MDM4LTE3MjY2ODM5/NDUtNjAyMi5qcGVn.jpeg"
-              link="https://fontainesdc.bandcamp.com/album/romance"
-            />
-            <Record
-              title="Dummy"
-              artist="Portishead"
-              coverUrl="https://i.discogs.com/42s0M3miRlGBRZYei2eVcwGQRXu-KlfaRn348rqIgIA/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU4MTIx/Ni0xMTM0MjE2MTY2/LmpwZWc.jpeg"
-              link="https://www.discogs.com/master/5542-Portishead-Dummy"
-            />
-            <Record
-              title="My Method Actor"
-              artist="Nilüfer Yanya"
-              coverUrl="https://i.discogs.com/iS8FEGDI8DuWdQ5qu9P9p9hLpALlerNkRRzIoQKgThI/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzA1/NzY5LTE3MjYwMjY2/MDAtNzA4Ni5qcGVn.jpeg"
-              link="https://niluferyanya.bandcamp.com/album/my-method-actor"
-            />
-            <Record
-              title="In Rainbows"
-              artist="Radiohead"
-              coverUrl="https://i.discogs.com/7y0jjFTZp88uBO380fsYcO36I3ex_er3lZn8COq90Vc/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNzQy/OTYtMTY5NzMyNzQ3/Ny0yMzQ1LmpwZWc.jpeg"
-              link="https://radiohead.bandcamp.com/album/in-rainbows"
-            />
+            {RECORDS.map((record) => (
+              <Record key={record.title} {...record} />
+            ))}
           </div>
           <div className="md:hidden w-full relative px-0">
             <div className="absolute left-0 top-0 w-20 h-full bg-gradient-to-r from-background to-transparent z-10" />
@@ -334,38 +317,11 @@ export function AboutPage() {
               className="w-full"
             >
               <CarouselContent className="-ml-1 flex items-center">
-                <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
-                  <Record
-                    title="Romance"
-                    artist="Fontaines D.C."
-                    coverUrl="https://i.discogs.com/R9FyWMod4CmVozI5xWbVqbAHCQFl-Wd5PDsoy3oUxKk/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNTQx/MDM4LTE3MjY2ODM5/NDUtNjAyMi5qcGVn.jpeg"
-                    link="https://fontainesdc.bandcamp.com/album/romance"
-                  />
-                </CarouselItem>
-                <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
-                  <Record
-                    title="Dummy"
-                    artist="Portishead"
-                    coverUrl="https://i.discogs.com/42s0M3miRlGBRZYei2eVcwGQRXu-KlfaRn348rqIgIA/rs:fit/g:sm/q:90/h:593/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTU4MTIx/Ni0xMTM0MjE2MTY2/LmpwZWc.jpeg"
-                    link="https://www.discogs.com/master/5542-Portishead-Dummy"
-                  />
-                </CarouselItem>
-                <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
-                  <Record
-                    title="My Method Actor"
-                    artist="Nilüfer Yanya"
-                    coverUrl="https://i.discogs.com/iS8FEGDI8DuWdQ5qu9P9p9hLpALlerNkRRzIoQKgThI/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTMxNzA1/NzY5LTE3MjYwMjY2/MDAtNzA4Ni5qcGVn.jpeg"
-                    link="https://niluferyanya.bandcamp.com/album/my-method-actor"
-                  />
-                </CarouselItem>
-                <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
-                  <Record
-                    title="In Rainbows"
-                    artist="Radiohead"
-                    coverUrl="https://i.discogs.com/7y0jjFTZp88uBO380fsYcO36I3ex_er3lZn8COq90Vc/rs:fit/g:sm/q:90/h:594/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTExNzQy/OTYtMTY5NzMyNzQ3/Ny0yMzQ1LmpwZWc.jpeg"
-                    link="https://radiohead.bandcamp.com/album/in-rainbows"
-                  />
-                </CarouselItem>
+                {RECORDS.map((record) => (
+                  <CarouselItem key={record.title} className="pl-1 basis-[95%] flex items-center justify-center">
+                    <Record {...record} />
+                  </CarouselItem>
+                ))}
               </CarouselContent>
               <CarouselPrevious className="absolute -left-2 hover:bg-background/80 hover:text-foreground z-20" />
               <CarouselNext className="absolute -right-2 hover:bg-background/80 hover:text-foreground z-20" />
