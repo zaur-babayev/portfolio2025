@@ -4,8 +4,6 @@ import { Timeline } from "@/components/Timeline";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  H2,
-  SectionLabel,
   SectionDescription,
   SectionHeader,
 } from "@/components/ui/typography";
@@ -14,8 +12,6 @@ import { Record } from "@/components/ui/record";
 import Socials from "@/components/Socials";
 import "@/styles/book.css";
 import "@/styles/record.css";
-import { useState } from "react";
-import { profileAsciiArt } from "@/data/ascii-art";
 import {
   Carousel,
   CarouselContent,
@@ -148,22 +144,27 @@ const RECORDS = [
 ] as const;
 
 export function AboutPage() {
-  const [showAscii, setShowAscii] = useState(false);
-
   return (
     <PageTransition>
       <motion.div className="space-y-24">
         {/* Header */}
         <motion.div
-          className="space-y-4"
+          className="space-y-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <SectionHeader
-            title="Well hi there, my name is Zaur [/zaˈuɾ/]"
-            description="I'm a product designer and design researcher who loves creating / improving things and other people's lives. My main focus at the moment is in Fintech and Digital Well-being."
-          />
+          <h1 className="font-serif text-4xl md:text-6xl font-normal tracking-header leading-[1.05]">
+            Well hi there, my name is Zaur{" "}
+            <span className="block sm:inline text-2xl md:text-4xl text-muted-foreground/60 font-light">
+              [/zaˈuɾ/]
+            </span>
+          </h1>
+          <SectionDescription className="text-xl md:text-2xl leading-relaxed">
+            I'm a product designer and design researcher who loves creating /
+            improving things and other people's lives. My main focus at the
+            moment is in Fintech and Digital Well-being.
+          </SectionDescription>
         </motion.div>
 
         {/* Profile Image */}
@@ -174,23 +175,13 @@ export function AboutPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div 
-            className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted sm:aspect-[3/2] lg:aspect-[2/1] cursor-pointer" 
-            onClick={() => setShowAscii(!showAscii)}
-          >
+          <div className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-muted sm:aspect-[3/2] lg:aspect-[2/1]">
             <img
               src="/images/profile.jpg"
               alt="Profile"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/20 to-background/0" />
-            {showAscii && (
-              <div className="absolute inset-0 bg-background/95 flex items-center justify-center">
-                <pre className="text-[0.25rem] sm:text-[0.45rem] md:text-[0.5rem] font-mono whitespace-pre leading-[1.15] text-foreground max-h-full w-full scale-[0.85] sm:scale-90">
-                  {profileAsciiArt}
-                </pre>
-              </div>
-            )}
           </div>
         </motion.section>
 
@@ -221,9 +212,7 @@ export function AboutPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="space-y-4">
-            <H2>Experience</H2>
-          </div>
+          <SectionHeader title="Experience" />
           <Timeline items={[...EXPERIENCE]} />
           <div className="flex items-center pt-4">
             <Button variant="outline" size="lg" asChild>
@@ -243,9 +232,7 @@ export function AboutPage() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="space-y-4">
-            <H2>Academic Background</H2>
-          </div>
+          <SectionHeader title="Academic Background" />
           <Timeline items={[...EDUCATION]} />
         </motion.section>
 
@@ -261,9 +248,17 @@ export function AboutPage() {
             title="Recent books I've read"
             description="Trying to squeeze in some reading time during the day. Kindle has been a game-changer for this."
           />
-          <div className="hidden md:grid grid-cols-1 items-center justify-items-center gap-8 md:grid-cols-3 lg:grid-cols-4">
-            {BOOKS.map((book) => (
-              <Book key={book.title} {...book} />
+          <div className="hidden md:grid grid-cols-3 lg:grid-cols-4 items-center justify-items-center gap-8">
+            {BOOKS.map((book, i) => (
+              <motion.div
+                key={book.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <Book {...book} />
+              </motion.div>
             ))}
           </div>
           <div className="md:hidden w-full relative px-0">
@@ -295,15 +290,23 @@ export function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="space-y-8 mt-24"
+          className="space-y-8"
         >
           <SectionHeader
             title="Albums I've been enjoying lately"
             description="I always listen to music while working. These are the albums that have been helping me get into the flow."
           />
           <div className="hidden md:grid grid-cols-3 lg:grid-cols-4 items-center justify-items-center gap-8">
-            {RECORDS.map((record) => (
-              <Record key={record.title} {...record} />
+            {RECORDS.map((record, i) => (
+              <motion.div
+                key={record.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <Record {...record} />
+              </motion.div>
             ))}
           </div>
           <div className="md:hidden w-full relative px-0">
