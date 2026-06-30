@@ -248,17 +248,17 @@ export function AboutPage() {
                 <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
                   <Book
                     title="Hard Rain Falling"
-                    coverUrl="https://ia600202.us.archive.org/view_archive.php?archive=/5/items/olcovers630/olcovers630-L.zip&file=6305862-L.jpg"
+                    coverUrl="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1682851327i/6553843.jpg"
                     author="Don Carpenter"
                     link="https://www.goodreads.com/book/show/6553843-hard-rain-falling"
                   />
                 </CarouselItem>
                 <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
                   <Book
-                    title="The Stranger"
-                    coverUrl="https://covers.openlibrary.org/b/id/14814329-L.jpg"
-                    author="Albert Camus"
-                    link="https://www.goodreads.com/book/show/49552.The_Stranger"
+                    title="Rejection"
+                    coverUrl="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1757697215i/199635125.jpg"
+                    author="Tony Tulathimutte"
+                    link="https://www.goodreads.com/book/show/199635125-rejection?ref=nav_sb_ss_1_9"
                   />
                 </CarouselItem>
                 <CarouselItem className="pl-1 basis-[95%] flex items-center justify-center">
