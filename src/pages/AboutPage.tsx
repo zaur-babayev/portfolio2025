@@ -215,9 +215,9 @@ export function AboutPage() {
           <SectionHeader title="Experience" />
           <Timeline items={[...EXPERIENCE]} />
           <div className="flex items-center pt-4">
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild className="group">
               <a href="/resume-Zaur_Babayev.pdf" download>
-                <Download />
+                <Download className="transition-transform group-hover:translate-y-0.5" />
                 Download Resume
               </a>
             </Button>

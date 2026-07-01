@@ -293,6 +293,7 @@ export default function AdminPage() {
                               variant="ghost" 
                               className="h-8 px-2 text-green-600 hover:text-green-700 hover:bg-green-50 dark:hover:bg-green-900/20"
                               onClick={() => handleApproveRequest(request.id)}
+                              aria-label="Approve request"
                             >
                               <Check className="w-4 h-4" />
                             </Button>
@@ -301,6 +302,7 @@ export default function AdminPage() {
                               variant="ghost" 
                               className="h-8 px-2 text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/20"
                               onClick={() => handleRejectRequest(request.id)}
+                              aria-label="Reject request"
                             >
                               <X className="w-4 h-4" />
                             </Button>
@@ -353,6 +355,7 @@ export default function AdminPage() {
                             size="sm" 
                             variant="ghost" 
                             className="h-6 w-6 p-0"
+                            aria-label="Copy token"
                             onClick={() => {
                               navigator.clipboard.writeText(token.value);
                               toast({
@@ -373,6 +376,7 @@ export default function AdminPage() {
                           size="sm" 
                           variant="ghost" 
                           className="h-8 px-2 text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-900/20"
+                          aria-label="Revoke token"
                           onClick={() => {
                             // Remove token
                             const newTokens = tokens.filter(t => t.value !== token.value);

@@ -108,6 +108,8 @@ export default function NavigationBar() {
             size="icon"
             className="md:hidden"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
             <Menu className="h-5 w-5 rotate-0 scale-100 transition-all data-[open=true]:-rotate-90 data-[open=true]:scale-0" data-open={isOpen} />
             <X className="absolute h-5 w-5 rotate-90 scale-0 transition-all data-[open=true]:rotate-0 data-[open=true]:scale-100" data-open={isOpen} />
