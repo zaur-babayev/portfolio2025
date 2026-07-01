@@ -75,7 +75,7 @@
   transition: none;
 }
 
-.transitioning-theme * {
+.transitioning * {
   transition: background-color var(--transition-duration) ease,
               border-color var(--transition-duration) ease,
               color var(--transition-duration) ease !important;
